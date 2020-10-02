@@ -8,6 +8,7 @@ import string
 import json
 from time import sleep
 from random import uniform
+from BME280 import data
  
 connflag = False
  
@@ -26,23 +27,23 @@ def on_message(client, userdata, msg):                      # Func for Sending m
 #     print("Random string of length", length, "is:", result_str)
 #     return result_str
     
-# def getMAC(interface='eth0'):
-#   # Return the MAC address of the specified interface
-#   try:
-#     str = open('/sys/class/net/%s/address' %interface).read()
-#   except:
-#     str = "00:00:00:00:00:00"
-#   return str[0:17]
-# def getEthName():
-#   # Get name of the Ethernet interface
-#   try:
-#     for root,dirs,files in os.walk('/sys/class/net'):
-#       for dir in dirs:
-#         if dir[:3]=='enx' or dir[:3]=='eth':
-#           interface=dir
-#   except:
-#     interface="None"
-#   return interface
+def getMAC(interface='eth0'):
+  # Return the MAC address of the specified interface
+  try:
+    str = open('/sys/class/net/%s/address' %interface).read()
+  except:
+    str = "00:00:00:00:00:00"
+  return str[0:17]
+def getEthName():
+  # Get name of the Ethernet interface
+  try:
+    for root,dirs,files in os.walk('/sys/class/net'):
+      for dir in dirs:
+        if dir[:3]=='enx' or dir[:3]=='eth':
+          interface=dir
+  except:
+    interface="None"
+  return interface
  
 #def on_log(client, userdata, level, buf):
 #    print(msg.topic+" "+str(msg.payload))
@@ -70,22 +71,23 @@ mqttc.loop_start()                                          # Start the loop
 while 1==1:
     sleep(5)
     if connflag == True:
-        # ethName=getEthName()
-        # ethMAC=getMAC(ethName)
-        # macIdStr = ethMAC
+        ethName=getEthName()
+        ethMAC=getMAC(ethName)
+        macIdStr = ethMAC
         # randomNumber = uniform(20.0,25.0)
         # random_string= get_random_string(8)
-        # paylodmsg0="{"
-        # paylodmsg1 = "\"mac_Id\": \""
-        # paylodmsg2 = "\", \"random_number\":"
-        # paylodmsg3 = ", \"random_string\": \""
-        # paylodmsg4="\"}"
-        # paylodmsg = "{} {} {} {} {} {} {} {}".format(paylodmsg0, paylodmsg1, macIdStr, paylodmsg2, randomNumber, paylodmsg3, random_string, paylodmsg4)
-        # paylodmsg = json.dumps(paylodmsg) 
-        # paylodmsg_json = json.loads(paylodmsg)       
-        mqttc.publish("crazyrs6", json.dumps({"message": "Hello I'am Omar"}) , qos=1)        # topic: temperature # Publishing Temperature values
-        print("msg sent: crazyrs6" ) # Print sent temperature msg on console
-        # print(paylodmsg_json)
+        paylodmsg0="{"
+        paylodmsg1 = "\"mac_Id\": \""
+        paylodmsg2 = "\", \"Temperature\":"
+        paylodmsg3 = ", \"Pressure\":"
+        paylodmsg5 = ", \"Humidity\":"
+        paylodmsg4="}"
+        paylodmsg = "{} {} {} {} {} {} {} {} {} {}".format(paylodmsg0, paylodmsg1, macIdStr, paylodmsg2, data.temperature, paylodmsg3, data.pressure, paylodmsg5, data.humidity, paylodmsg4)
+        paylodmsg = json.dumps(paylodmsg) 
+        paylodmsg_json = json.loads(paylodmsg)       
+        mqttc.publish("BME280", paylodmsg_json , qos=1)        # topic: temperature # Publishing Temperature values
+        print("msg sent: BME280" ) # Print sent temperature msg on console
+        print(paylodmsg_json)
 
     else:
         print("waiting for connection...")                      
