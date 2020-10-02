@@ -25,11 +25,11 @@ mqttc.on_message = on_message                               # assign on_message 
 #### Change following parameters #### 
 awshost = "au2l5exh24t0e-ats.iot.eu-central-1.amazonaws.com"      # Endpoint
 awsport = 8883                                              # Port no.   
-clientId = "SPMStestpi"                                     # Thing_Name
-thingName = "SPMStestpi"                                    # Thing_Name
-caPath = "/home/pi/iot-core-credentials/AmazonRootCA1.pem"                                      # Root_CA_Certificate_Name
-certPath = "/home/pi/iot-core-credentials/0bae17097e-certificate.pem.crt"                            # <Thing_Name>.cert.pem
-keyPath = "/home/pi/iot-core-credentials/0bae17097e-private.pem.key"
+clientId = "SPMS2_pi"                                     # Thing_Name
+thingName = "SPMS2_pi"                                    # Thing_Name
+caPath = "/home/pi/cloud/AmazonRootCA1.pem"                                      # Root_CA_Certificate_Name
+certPath = "/home/pi/cloud/a5cc254edc-certificate.pem.crt"                            # <Thing_Name>.cert.pem
+keyPath = "/home/pi/cloud/a5cc254edc-private.pem.key"                          # <Thing_Name>.private.key
  
 mqttc.tls_set(caPath, certfile=certPath, keyfile=keyPath, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)      
  
