@@ -3,7 +3,7 @@ import bme280
 import paho.mqtt.client as mqtt
 import json
 
-THINGSBOARD_HOST = 'ec2-18-193-210-68.eu-central-1.compute.amazonaws.com'
+THINGSBOARD_HOST = 'ec2-18-156-208-13.eu-central-1.compute.amazonaws.com'
 ACCESS_TOKEN = 'zbwdc6FbMo4hsCblUvXP'
 
 INTERVAL = 2
