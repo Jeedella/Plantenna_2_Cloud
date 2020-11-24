@@ -3,8 +3,8 @@ import bme280
 import paho.mqtt.client as mqtt
 import json
 
-THINGSBOARD_HOST = 'ec2-18-156-208-13.eu-central-1.compute.amazonaws.com'
-ACCESS_TOKEN = 'zbwdc6FbMo4hsCblUvXP'
+THINGSBOARD_HOST = 'plantenna.nl'
+ACCESS_TOKEN = 'qYMI8cPkKJsfwveFYi4Q'
 
 INTERVAL = 2
 
@@ -19,17 +19,17 @@ client.connect(THINGSBOARD_HOST, 1883, 60)
 
 client.loop_start()
 
-# port = 1
-# address = 0x76
-# bus = smbus2.SMBus(port)
+port = 1
+address = 0x76
+bus = smbus2.SMBus(port)
 
 while True:
-    # calibration_params = bme280.load_calibration_params(bus, address)
-    # data = bme280.sample(bus, address, calibration_params)
-    # temperature = data.temperature
-    # print (temperature)
-    # pressure = data.pressure
-    # humidity = data.humidity
+    calibration_params = bme280.load_calibration_params(bus, address)
+    data = bme280.sample(bus, address, calibration_params)
+    temperature = data.temperature
+    print (temperature)
+    pressure = data.pressure
+    humidity = data.humidity
     # Sending humidity and temperature data to ThingsBoard
     sensor_data['temperature'] = temperature
     sensor_data['pressure'] = pressure
