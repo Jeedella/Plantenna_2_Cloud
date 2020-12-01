@@ -1,7 +1,7 @@
 # Installation and setup of Thingsboard
 
 ## AWS setup
-First of all, you should have setup an AWS EC2 instance on which Thingsboard will be installed. If not, please refer to this [guide]()
+First of all, you should have setup an AWS EC2 instance on which Thingsboard will be installed. If not, please refer to this [guide](https://github.com/Jeedella/Plantenna_2_Cloud/blob/master/Cloud/Readme.md)
 
 ## Installation of Thingsboard for Ubuntu
 Please not that Thingsboard Community Edition is being used. This is an open source and free setup. There is a Professional Edition which will not be used.
