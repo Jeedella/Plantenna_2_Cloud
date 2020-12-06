@@ -16,15 +16,7 @@ def on_message(client, userdata, msg):
     print('Topic: ' + msg.topic + '\nMessage: ' + str(msg.payload))
     # # Decode JSON request
     # data = json.loads(msg.payload)
-    # # Check request method
-    # if data['method'] == 'getGpioStatus':
-    #     # Reply with GPIO status
-    #     client.publish(msg.topic.replace('request', 'response'), get_gpio_status(), 1)
-    # elif data['method'] == 'setGpioStatus':
-    #     # Update GPIO status and reply
-    #     set_gpio_status(data['params']['pin'], data['params']['enabled'])
-    #     client.publish(msg.topic.replace('request', 'response'), get_gpio_status(), 1)
-    #     client.publish('v1/devices/me/attributes', get_gpio_status(), 1)
+    print(data)
 
 client = mqtt.Client()
 # Register connect callback
@@ -39,3 +31,6 @@ client.connect(THINGSBOARD_HOST, 1883, 60)
 try:
     client.loop_forever()
 except KeyboardInterrupt:
+    print('closing program')
+    sys.exit(0)
+    
