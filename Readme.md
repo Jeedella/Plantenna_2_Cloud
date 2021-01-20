@@ -30,7 +30,7 @@ To setup an EC2 instance which is compatible with Thingsboard, follow this guide
 ## Associate an Elastic IP to your EC2 instance
 Follow this guide: https://www.cloudbooklet.com/how-to-assign-an-elastic-ip-address-to-your-ec2-instance-in-aws/
 
-## Setup of a domain in Route53
+## Setup a domain in Route53
 To setup a domain and link it to EC2 follow this guide: https://www.cloudbooklet.com/how-to-setup-route-53-for-your-domain-in-aws/\
 
 ## Installation of Thingsboard for Ubuntu
