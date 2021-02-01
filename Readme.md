@@ -34,6 +34,12 @@ To check whether the Haproxy service is running, use the following command: `sud
 
 If everything went well, you should be able to access your Thingsboard instance. This can be done with the IP address allocated by Azure
 
+### Creating your first dashboard
+Thingsboard has excellent guides on how to use their platform. The following links are very useful to learn how to register a device, and how to build your very own dashboard.
+-   [creating a dashboard](https://thingsboard.io/docs/iot-video-tutorials/#dashboard-development-guide-part-1-of-3-visualizing-assets-data-using-maps-and-tables)
+-   [How to use MQTT to publish](https://thingsboard.io/docs/samples/raspberry/temperature/)
+-   [How to use MQTT to subscribe](https://thingsboard.io/docs/samples/raspberry/gpio/)
+
 ## Setup a domain in Route53
 Because the project started in AWS, a DNS has been acquired there. This has been done using AWS Route53. 
 
