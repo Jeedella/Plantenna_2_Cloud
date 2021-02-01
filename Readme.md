@@ -36,7 +36,7 @@ If everything went well, you should be able to access your Thingsboard instance.
 
 ### Creating your first dashboard
 Thingsboard has excellent guides on how to use their platform. The following links are very useful to learn how to register a device, and how to build your very own dashboard.
--   [creating a dashboard](https://thingsboard.io/docs/iot-video-tutorials/#dashboard-development-guide-part-1-of-3-visualizing-assets-data-using-maps-and-tables)
+-   [Creating a dashboard](https://thingsboard.io/docs/iot-video-tutorials/#dashboard-development-guide-part-1-of-3-visualizing-assets-data-using-maps-and-tables)
 -   [How to use MQTT to publish](https://thingsboard.io/docs/samples/raspberry/temperature/)
 -   [How to use MQTT to subscribe](https://thingsboard.io/docs/samples/raspberry/gpio/)
 
