@@ -50,14 +50,30 @@ The registered domain is plantenna.nl
 # IMPORTANT: BACKUP OF POSTGRESQL
 In this repository, a backup file is added named thingsboard.sql.bak
 ## !!!DO NOT REMOVE THIS FILE!!!
-This file contains the backup of the database, which should be used if restoring is needed. 
+This file contains the backup of the database, which should be used if restoring is needed.
+
+This backup file has been generated in Thingsboard version 3.2.1. This version uses OpenJDK 8.
 
 The new group will not have access to the virtual machine anymore. A new one should be created.
-After doing the installations above, follows these steps:
--   Download the backup file and transfer it using SCP to your VM
--   log in to the postgreSQL using the following command: `psql -U postgres -d postgres -h 127.0.0.1 -W`
--   Restore the database using the following command: `psql -U postgres -d postgres -h 127.0.0.1 -f thingsboard.sql.bak`
-Now you should see data being restored.
+
+## How to restore the database ##
+1. Download the backup file and transfer it using SCP or Filezilla to your VM
+2. Download OpenJDK 8
+3. Download Thingsboard version 3.2.1
+4. Download postgresql and set the password according to what is noted in "login_credentials_SPMS.xlsx"
+5. Create database named 'thingsboard'
+6. restore the database using the following command `psql -U postgres -d thingsboard -h 127.0.0.1 -f thingsboard.sql.bak`
+7. Run the install script for thingsboard. Note that this will gives errors because there are already things excisting. This is normal. 
+8. Start Thingsboard
+Now if everything went well, the database should be restored.
+
+If wanted, upgrading to newer versions of Thingsboard is now possible. Note that the newer update of thingsboard used OpenJDK 11. An upgrade to it is needed for the installation. 
+
+--DISCLAIMER--
+The restoring could be done using another method, with different installation steps. But the method explained here is verified to work. 
+Just keep in mind, as long as the backup file is available, you won't lose anything. 
+
+
 
 
 
